@@ -22,28 +22,28 @@ public class TaskService {
     }
 
     public Task getTaskById(int id) throws NoTaskException {
-        if(this.taskDao.getTaskById(id) instanceof Task)
+        if(this.taskDao.getTaskById(id) != null)
             return this.taskDao.getTaskById(id);
         else
             throw new NoTaskException();
     }
 
     public void removeTaskById(int id) throws NoTaskException{
-        if(this.taskDao.getTaskById(id) instanceof Task)
+        if(this.taskDao.getTaskById(id) != null)
             this.taskDao.removeTaskById(id);
         else
             throw new NoTaskException();
     }
 
     public void updateTask(Task task)throws NoTaskException{
-        if(this.taskDao.getTaskById(task.getId()) instanceof Task)
+        if(this.taskDao.getTaskById(task.getId()) != null)
             this.taskDao.updateTask(task);
         else
             throw new NoTaskException();
     }
 
     public void insertTask(Task task) throws TaskExistException{
-        if(! (this.taskDao.getTaskById(task.getId()) instanceof Task))
+        if((this.taskDao.getTaskById(task.getId()) == null))
             this.taskDao.insertTask(task);
         else
             throw new TaskExistException();

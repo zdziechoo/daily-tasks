@@ -58,8 +58,8 @@ public class Task {
     public void setCreateStamp(LocalDateTime localDateTime) {
         this.createStamp = localDateTime;
     }
-    public void setNowCreateStamp(){
-        LocalDateTime now = LocalDateTime.now();
-        this.createStamp = now;
+
+    private void setNowCreateStamp(){
+        this.createStamp = LocalDateTime.now();
     }
 }
